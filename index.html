@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuantumFX Trading and Investment Platform</title>
+    <link rel="stylesheet" href="./output.css">
+</head>
+<body>
+    <div class="wrapper">
+
+        <nav class="bg-indigo-950 text-white" x-data="{ isOpen: false }">
+            <div class="container mx-auto px-4 flex items-center justify-between h-16">
+              <!-- Logo Section -->
+              <div class="flex items-center">
+                <img class="h-10 w-32 mr-2" src="./assets/quantumbridge_logo.png" alt="Logo">
+                
+              </div>
+        
+              <!-- Desktop Menu -->
+              <ul class="hidden md:flex space-x-6">
+                <li><a href="/" class="hover:text-gray-300">Home</a></li>
+                <li><a href="#about" class="hover:text-gray-300">About</a></li>
+                <li><a href="#services" class="hover:text-gray-300">Plans</a></li>
+                <li><a href="#faq" class="hover:text-gray-300">FAQ</a></li>
+                <li><a href="#contact" class="hover:text-gray-300">Contact</a></li>
+                <li><a href="./register.php" class="hover:text-gray-300">Register</a></li>
+                <li><a href="./login.php" class="hover:text-gray-300">Login</a></li>
+              </ul>
+        
+              <!-- Hamburger Menu Icon for Mobile -->
+              <div class="md:hidden">
+                <button @click="isOpen = !isOpen" class="focus:outline-none text-white text-2xl">
+                  <span x-text="isOpen ? '✖' : '☰'"></span>
+                </button>
+              </div>
+            </div>
+        
+            <!-- Mobile Menu -->
+            <ul
+              class="md:hidden bg-blue-700 text-white flex flex-col space-y-2 p-4"
+              x-show="isOpen"
+              x-transition:enter="transition ease-out duration-300"
+              x-transition:enter-start="opacity-0 transform -translate-y-10"
+              x-transition:enter-end="opacity-100 transform translate-y-0"
+              x-transition:leave="transition ease-in duration-300"
+              x-transition:leave-start="opacity-100 transform translate-y-0"
+              x-transition:leave-end="opacity-0 transform -translate-y-10"
+            >
+              <li><a href="/" class="hover:text-gray-300" @click="isOpen = false">Home</a></li>
+              <li><a href="#about" class="hover:text-gray-300" @click="isOpen = false">About</a></li>
+              <li><a href="#services" class="hover:text-gray-300" @click="isOpen = false">Services</a></li>
+              <li><a href="#contact" class="hover:text-gray-300" @click="isOpen = false">Contact</a></li>
+              <li><a href="./register.php" class="hover:text-gray-300" @click="isOpen = false">Register</a></li>
+              <li><a href="./index.php" class="hover:text-gray-300" @click="isOpen = false">Login</a></li>
+            </ul>
+          </nav>
+
+          <!--Hero section-->
+          <section id="hero" class="w-full pb-20 relative px-4 sm:px-8 mx-auto gap-x-6 overflow-hidden">
+            <div class="relative max-w-screen-xl px-4 sm:px-8 mx-auto grid grid-cols-12 gap-x-6 overflow-hidden">
+              <!-- Left Content -->
+              <div class="col-span-12 lg:col-span-6 mt-12 xl:mt-10 space-y-4 sm:space-y-6 px-6 text-center sm:text-left">
+                <span class="text-base text-gradient font-semibold uppercase">Sign Up Today</span>
+                <h1 class="text-[2.5rem] sm:text-5xl xl:text-6xl font-bold leading-tight capitalize sm:pr-8 xl:pr-10">
+                  Secure and <span class="text-header-gradient">Easy Way</span> to Trade & Invest
+                </h1>
+                <p class="paragraph sm:block">
+                  Buy and sell cryptocurrencies, Invest in stocks, real estate, gold and other commodities from the comfort of
+                  your home using a secured platform.
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mt-2">
+                  <a href="./register.php"
+                    class="bg-indigo-700 text-white py-2 px-6 rounded hover:bg-indigo-800 transition duration-300">
+                    Get Started
+                  </a>
+                  <a href="./login.php"
+                    class="bg-gray-700 text-white py-2 px-6 rounded hover:bg-gray-800 transition duration-300">
+                    Login
+                  </a>
+                </div>
+              </div>
+        
+              <!-- Right Content -->
+              <div class="col-span-12 lg:col-span-6">
+                <div class="w-full">
+                  <img src="./assets/hero-image.png" class="-mt-4" alt="Hero Image">
+                </div>
+              </div>
+        
+              <!-- Decorative Elements -->
+              <img src="./assets/pattern/ellipse-1.png" class="hidden sm:block absolute bottom-12 xl:bottom-16 left-4 xl:left-0 w-6"
+                alt="Ellipse 1">
+              <img src="./assets/pattern/ellipse-2.png"
+                class="hidden sm:block absolute top-4 sm:top-10 right-64 sm:right-96 xl:right-[32rem] w-6" alt="Ellipse 2">
+              <img src="./assets/pattern/ellipse-3.png" class="hidden sm:block absolute bottom-56 right-24 w-6" alt="Ellipse 3">
+              <img src="./assets/pattern/star.png" class="hidden sm:block absolute top-20 sm:top-28 right-16 lg:right-0 lg:left-[30rem] w-8"
+                alt="Star">
+            </div>
+          </section>
+      
+
+   <!-- Section Wrapper -->
+   <section class="w-full pb-20 relative px-4 sm:px-8 mx-auto gap-x-6 overflow-hidden flex flex-col space-y-6 justify-center items-center bg-white shadow-md rounded-lg p-8">
+    
+    <!-- Top Image -->
+    <img src="./assets/buy-and-trade.png" alt="Buy and Trade" class="max-w-12 md:max-w-[70px]" />
+
+    <!-- Content -->
+    <div class="w-full lg:max-w-6xl mt-4 xl:mt-20 space-y-6 px-4 flex flex-col justify-center items-center text-center">
+      <h2 class="text-4xl font-semibold">
+        Welcome to <br class="hidden sm:block" />
+        Quantum Edge Inc.
+      </h2>
+      <p class="p-3 text-justify">
+        Quantum Edge Partners is a premier provider of tailored trading, investment services, analytics, and technology solutions.
+        We enable investors to capitalize on opportunities across global cryptocurrency, forex, stock, and commodities markets,
+        helping them grow and diversify their portfolios.
+
+        Our global network of seasoned analysts, skilled traders, and industry experts, coupled with proprietary technology,
+        empowers clients to trade more efficiently and achieve greater profitability.
+
+        We EMPOWER our clients to drive higher revenues. We INNOVATE with cutting-edge proprietary technology and advanced automation
+        solutions.
+      </p>
+      <a href="/register.php"
+        class="bg-indigo-600 text-white px-6 py-2 rounded-md hover:bg-indigo-800 transition duration-300">
+        Create Account
+      </a>
+    </div>
+
+    <!-- Bottom Image -->
+    <img src="./assets/buy-and-trade.png" alt="Buy and Trade" class="max-w-12 md:max-w-[70px]" />
+  </section>
+   
+  <!-- About Section -->
+   <section id="about" class="w-full pb-20 relative sm:px-8 mx-auto gap-x-6 overflow-hidden pt-10 px-8 bg-indigo-950 text-white">
+    <div class="mx-auto">
+      <div class="-mx-4 flex flex-wrap items-center justify-between">
+
+        <!-- Image Section -->
+        <div class="w-full px-4 lg:w-1/2">
+          <div class="-mx-3 flex items-center sm:-mx-4">
+            <div class="w-full px-3 sm:px-4">
+              <div class="relative z-10 my-4">
+                <img src="./assets/nefa-cc.png" alt="Why Choose Us?" class="w-full rounded-2xl">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content Section -->
+        <div class="w-full px-4 lg:w-1/2 xl:w-1/2">
+          <div class="mt-10 lg:mt-0">
+            <span class="mb-4 block text-lg font-semibold text-indigo-300">
+              Why Choose Us?
+            </span>
+            <h2 class="mb-5 text-3xl font-bold sm:text-[40px]/[48px]">
+              We Put You First!
+            </h2>
+            <p class="mb-5 text-base text-gray-300">
+              With over a decade in the financial markets, we always put our clients' needs first, guaranteeing you maximum satisfaction and profitability.
+            </p>
+
+            <!-- Feature 1 -->
+            <div class="mb-8 text-base flex flex-col space-y-2 border-b-2 border-b-white pb-4">
+              <div class="text-2xl">⚡</div>
+              <h4 class="text-2xl text-left font-bold">Fast Transactions</h4>
+              <span>
+                No long steps here, just straightforward ways to trade and invest in your favorite markets.
+              </span>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="mb-8 text-base flex flex-col space-y-2 border-b-2 border-b-white pb-4">
+              <div class="text-2xl">🔒</div>
+              <h4 class="text-2xl text-left font-bold">Safe and Secure</h4>
+              <span>
+                You can rest easy knowing that your crypto is safe with us anytime!
+              </span>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="mb-8 text-base flex flex-col space-y-2">
+              <div class="text-2xl">💬</div>
+              <h4 class="text-2xl text-left font-bold">24/7 Support</h4>
+              <span>
+                No matter what happens, even if the sky is falling or our favorite show is on, we're always available to help.
+              </span>
+            </div>
+
+            <!-- Button -->
+            <a href="/register.php"
+              class="inline-block bg-white text-indigo-950 px-6 py-2 rounded-md hover:text-white hover:bg-indigo-800 transition duration-300">
+              Get Started
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section class="w-full pb-20 relative px-4 sm:px-8 mx-auto gap-x-6 overflow-hidden pt-20">
+    <div class="container mx-auto">
+      <!-- Section Header -->
+      <div class="-mx-4 flex flex-wrap">
+        <div class="w-full px-4">
+          <div class="mx-auto mb-[60px] max-w-[510px] text-center">
+            <span class="mb-2 block text-lg font-semibold text-indigo-500">
+              Investment Portfolio
+            </span>
+            <h2 class="mb-3 text-3xl font-bold leading-[1.208] text-gray-800 sm:text-4xl md:text-[40px]">
+              Our Services
+            </h2>
+            <p class="text-base text-gray-600">
+              Our investment portfolios cut across different sectors to ensure we give our investors a catalog of choices to grow their wealth.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Portfolio Items -->
+      <div class="-mx-4 flex flex-wrap justify-center">
+
+        <!-- Crypto & Forex -->
+        <div class="w-full px-4 md:w-1/2 xl:w-1/3">
+          <div class="relative mb-12">
+            <div class="overflow-hidden rounded-[10px]">
+              <img src="./assets/forex.jpg" alt="Crypto & Forex" class="w-full">
+            </div>
+            <div class="relative z-10 mx-7 -mt-20 rounded-lg bg-white px-3 py-[34px] text-center shadow-lg">
+              <h3 class="mb-5 text-xl font-bold text-gray-800">Crypto & Forex</h3>
+              <p class="text-gray-600">
+                Through our expert analysts and cutting-edge technology powered by data and AI, we help our clients navigate the complex forex and cryptocurrency markets profitably.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gold & Commodities -->
+        <div class="w-full px-4 md:w-1/2 xl:w-1/3">
+          <div class="relative mb-12">
+            <div class="overflow-hidden rounded-[10px]">
+              <img src="./assets/gold.jpg" alt="Gold & Commodities" class="w-full">
+            </div>
+            <div class="relative z-10 mx-7 -mt-20 rounded-lg bg-white px-3 py-[34px] text-center shadow-lg">
+              <h3 class="mb-5 text-xl font-bold text-gray-800">Gold & Commodities</h3>
+              <p class="text-gray-600">
+                Invest in gold, silver, and other commodities with our secure platform to diversify your investment portfolio.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Agriculture -->
+        <div class="w-full px-4 md:w-1/2 xl:w-1/3">
+          <div class="relative mb-12">
+            <div class="overflow-hidden rounded-[10px]">
+              <img src="./assets/agric.jpg" alt="Agriculture" class="w-full">
+            </div>
+            <div class="relative z-10 mx-7 -mt-20 rounded-lg bg-white px-3 py-[34px] text-center shadow-lg">
+              <h3 class="mb-5 text-xl font-bold text-gray-800">Agriculture</h3>
+              <p class="text-gray-600">
+                Let your money work for you in the agricultural sector. Invest in the agriculture value chain with our professional fund managers guiding you all the way.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Real Estate -->
+        <div class="w-full px-4 md:w-1/2 xl:w-1/3">
+          <div class="relative mb-12">
+            <div class="overflow-hidden rounded-[10px]">
+              <img src="./assets/estate.jpg" alt="Real Estate" class="w-full">
+            </div>
+            <div class="relative z-10 mx-7 -mt-20 rounded-lg bg-white px-3 py-[34px] text-center shadow-lg">
+              <h3 class="mb-5 text-xl font-bold text-gray-800">Real Estate</h3>
+              <p class="text-gray-600">
+                You can never go wrong with our real estate portfolio, which spans different cities and geographical locations.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Oil & Gas -->
+        <div class="w-full px-4 md:w-1/2 xl:w-1/3">
+          <div class="relative mb-12">
+            <div class="overflow-hidden rounded-[10px]">
+              <img src="./assets/oil-and-gas.jpeg" alt="Oil and Gas" class="w-full">
+            </div>
+            <div class="relative z-10 mx-7 -mt-20 rounded-lg bg-white px-3 py-[34px] text-center shadow-lg">
+              <h3 class="mb-5 text-xl font-bold text-gray-800">Oil and Gas</h3>
+              <p class="text-gray-600">
+                Invest in our oil and gas sector with expert guidance to uncover opportunities in the energy industry.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mutual Fund -->
+        <div class="w-full px-4 md:w-1/2 xl:w-1/3">
+          <div class="relative mb-12">
+            <div class="overflow-hidden rounded-[10px]">
+              <img src="./assets/forex.jpg" alt="Mutual Fund" class="w-full">
+            </div>
+            <div class="relative z-10 mx-7 -mt-20 rounded-lg bg-white px-3 py-[34px] text-center shadow-lg">
+              <h3 class="mb-5 text-xl font-bold text-gray-800">Mutual Fund</h3>
+              <p class="text-gray-600">
+                Mutual funds let you pool your money with other investors to "mutually" buy stocks, bonds, and other investments.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-indigo-100 py-20 w-full pb-20 relative px-4 sm:px-8 mx-auto gap-x-6 overflow-hidden">
+    <div class="container mx-auto">
+      <div class="-mx-4 flex flex-wrap">
+        <div class="w-full px-4">
+          <div class="mx-auto mb-[60px] max-w-[510px] text-center">
+            <h2 class="mb-3 text-3xl font-bold leading-[1.208] text-dark sm:text-4xl md:text-[40px] dark:text-white">
+              Our Investment Plan
+            </h2>
+            <p class="text-base text-body-color dark:text-dark-6">
+              We have flexible investment plans suitable for your diverse investment needs
+            </p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="-mx-4 flex flex-wrap justify-center">
+        <!-- Basic Plan -->
+        <div class="w-full px-4 md:w-1/2 lg:w-1/3">
+          <div class="relative z-10 mb-10 overflow-hidden rounded-[10px] border-2 border-stroke bg-white px-8 py-10 shadow-pricing sm:p-12 lg:px-6 lg:py-10 xl:p-[50px] dark:border-dark-3 dark:bg-dark-2">
+            <span class="mb-3 block text-lg font-semibold text-primary">Basic</span>
+            <h2 class="mb-5 text-[24px] font-bold text-dark dark:text-white">
+              <span>Min: $60</span>
+              <span class="text-base font-medium text-body-color dark:text-dark-6">/ Max: $499</span>
+            </h2>
+            <div class="mb-9 flex flex-col gap-[14px]">
+              <p class="text-base text-body-color dark:text-dark-6">6% ROI / 24hrs</p>
+              <p class="text-base text-body-color dark:text-dark-6">2.5% Referral Commission</p>
+            </div>
+            <a href="/login.php" class="block w-full rounded-md border border-primary bg-indigo-700 p-3 text-center text-base font-medium text-white transition hover:bg-opacity-90">
+              Choose Basic
+            </a>
+          </div>
+        </div>
+  
+        <!-- Silver Plan -->
+        <div class="w-full px-4 md:w-1/2 lg:w-1/3">
+          <div class="relative z-10 mb-10 overflow-hidden rounded-[10px] border-2 border-stroke bg-white px-8 py-10 shadow-pricing sm:p-12 lg:px-6 lg:py-10 xl:p-[50px] dark:border-dark-3 dark:bg-dark-2">
+            <span class="mb-3 block text-lg font-semibold text-primary">Silver</span>
+            <h2 class="mb-5 text-[24px] font-bold text-dark dark:text-white">
+              <span>Min: $500</span>
+              <span class="text-base font-medium text-body-color dark:text-dark-6">/ Max: $2,999</span>
+            </h2>
+            <div class="mb-9 flex flex-col gap-[14px]">
+              <p class="text-base text-body-color dark:text-dark-6">12% ROI / 24hrs</p>
+              <p class="text-base text-body-color dark:text-dark-6">2.5% Referral Commission</p>
+            </div>
+            <a href="/login.php" class="block w-full rounded-md border border-primary bg-indigo-500 p-3 text-center text-base font-medium text-white transition hover:bg-opacity-90">
+              Choose Silver
+            </a>
+          </div>
+        </div>
+  
+        <!-- Premium Plan -->
+        <div class="w-full px-4 md:w-1/2 lg:w-1/3">
+          <div class="relative z-10 mb-10 overflow-hidden rounded-[10px] border-2 border-stroke bg-white px-8 py-10 shadow-pricing sm:p-12 lg:px-6 lg:py-10 xl:p-[50px] dark:border-dark-3 dark:bg-dark-2">
+            <span class="mb-3 block text-lg font-semibold text-primary">Premium</span>
+            <h2 class="mb-5 text-[24px] font-bold text-dark dark:text-white">
+              <span>Min: $3,000</span>
+              <span class="text-base font-medium text-body-color dark:text-dark-6">/ Max: $6,999</span>
+            </h2>
+            <div class="mb-9 flex flex-col gap-[14px]">
+              <p class="text-base text-body-color dark:text-dark-6">18% ROI / 24hrs</p>
+              <p class="text-base text-body-color dark:text-dark-6">2.5% Referral Commission</p>
+            </div>
+            <a href="/login.php" class="block w-full rounded-md border border-primary bg-blue-800 p-3 text-center text-base font-medium text-white transition hover:bg-opacity-90">
+              Choose Premium
+            </a>
+          </div>
+        </div>
+  
+        <!-- Diamond Plan -->
+        <div class="w-full px-4 md:w-1/2 lg:w-1/3">
+          <div class="relative z-10 mb-10 overflow-hidden rounded-[10px] border-2 border-stroke bg-white px-8 py-10 shadow-pricing sm:p-12 lg:px-6 lg:py-10 xl:p-[50px] dark:border-dark-3 dark:bg-dark-2">
+            <span class="mb-3 block text-lg font-semibold text-primary">Diamond</span>
+            <h2 class="mb-5 text-[24px] font-bold text-dark dark:text-white">
+              <span>Min: $7,000</span>
+              <span class="text-base font-medium text-body-color dark:text-dark-6">/ Max: UNLIMITED</span>
+            </h2>
+            <div class="mb-9 flex flex-col gap-[14px]">
+              <p class="text-base text-body-color dark:text-dark-6">24% ROI / 24hrs</p>
+              <p class="text-base text-body-color dark:text-dark-6">2.5% Referral Commission</p>
+            </div>
+            <a href="/login.php" class="block w-full rounded-md border border-primary bg-indigo-950 p-3 text-center text-base font-medium text-white transition hover:bg-opacity-90">
+              Choose Diamond
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="relative bg-indigo-950 text-white pt-20 w-full pb-20 px-4 sm:px-8 mx-auto gap-x-6 overflow-hidden">
+    <div class="mx-auto px-4 sm:container">
+      <div class="-mx-4 flex flex-wrap justify-center">
+        <!-- Statistic 1 -->
+        <div class="w-full px-4 md:w-1/2 lg:w-1/3">
+          <div class="mx-auto mb-10 max-w-[325px] text-center lg:mb-0">
+            <h3 class="mb-4 text-4xl font-bold leading-[1.2] text-white lg:text-5xl">
+              $50M+
+            </h3>
+            <p class="text-base text-white sm:text-lg">Yearly interest payouts</p>
+          </div>
+        </div>
+  
+        <!-- Statistic 2 -->
+        <div class="w-full px-4 md:w-1/2 lg:w-1/3">
+          <div class="mx-auto mb-10 max-w-[325px] text-center lg:mb-0">
+            <h3 class="mb-4 text-4xl font-bold leading-[1.2] text-white lg:text-5xl">
+              150,000+
+            </h3>
+            <p class="text-base text-white sm:text-lg">Active customers.</p>
+          </div>
+        </div>
+  
+        <!-- Statistic 3 -->
+        <div class="w-full px-4 md:w-1/2 lg:w-1/3">
+          <div class="mx-auto max-w-[325px] text-center">
+            <h3 class="mb-4 text-4xl font-bold leading-[1.2] text-white lg:text-5xl">
+              50,000+
+            </h3>
+            <p class="text-base text-white sm:text-lg">Monthly Transactions</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Background Shape -->
+    <div class="absolute left-1/2 top-0 -z-10 h-full w-full -translate-x-1/2">
+      <img
+        src="./assets/bg-trading-tools.png"
+        alt="graphic"
+        class="h-full w-full"
+      />
+    </div>
+  </section>
+
+  <section class="pt-20 w-full pb-20 relative px-4 sm:px-8 mx-auto gap-x-6 overflow-hidden">
+    <div class="container mx-auto">
+      <!-- Section Header -->
+      <div class="-mx-4 flex flex-wrap">
+        <div class="w-full px-4">
+          <div class="mx-auto mb-[60px] max-w-[510px] text-center">
+            <h2 class="mb-3 text-3xl font-bold leading-[1.208] text-dark sm:text-4xl md:text-[40px] dark:text-white">
+              Our Partners
+            </h2>
+            <p class="text-base text-body-color dark:text-dark-6">
+              We have partnered with global players in the investment and financial markets to bring you the best services and offerings
+            </p>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Partners Logos -->
+      <div class="-mx-4 flex flex-wrap">
+        <div class="w-full px-4">
+          <div class="grid grid-cols-2 gap-4 items-center justify-center lg:grid-cols-5">
+            <!-- Partner 1 -->
+            <a href="javascript:void(0)" class="flex items-center justify-center">
+              <img src="./assets/solana.png" alt="Solana Logo" class="w-full h-20 object-contain dark:hidden" />
+            </a>
+            <!-- Partner 2 -->
+            <a href="javascript:void(0)" class="flex items-center justify-center">
+              <img src="./assets/bitpay.png" alt="BitPay Logo" class="w-full h-20 object-contain dark:hidden" />
+            </a>
+            <!-- Partner 3 -->
+            <a href="javascript:void(0)" class="flex items-center justify-center">
+              <img src="./assets/onramp.png" alt="Onramp Logo" class="w-full h-20 object-contain dark:hidden" />
+            </a>
+            <!-- Partner 4 -->
+            <a href="javascript:void(0)" class="flex items-center justify-center">
+              <img src="./assets/coinbase.png" alt="CoinMarket Logo" class="w-full h-20 object-contain dark:hidden" />
+            </a>
+            <!-- Partner 4 -->
+            <a href="javascript:void(0)" class="flex items-center justify-center">
+                <img src="./assets/coinmarket.png" alt="CoinMarket Logo" class="w-full h-20 object-contain dark:hidden" />
+              </a>
+          </div>
+        </div>
+
+
+      </div>
+      <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+    {
+    "symbols": [
+      {
+        "proName": "FOREXCOM:SPXUSD",
+        "title": "S&P 500 Index"
+      },
+      {
+        "proName": "FOREXCOM:NSXUSD",
+        "title": "US 100 Cash CFD"
+      },
+      {
+        "proName": "FX_IDC:EURUSD",
+        "title": "EUR to USD"
+      },
+      {
+        "proName": "BITSTAMP:BTCUSD",
+        "title": "Bitcoin"
+      },
+      {
+        "proName": "BITSTAMP:ETHUSD",
+        "title": "Ethereum"
+      }
+    ],
+    "showSymbolLogo": true,
+    "isTransparent": false,
+    "displayMode": "adaptive",
+    "colorTheme": "light",
+    "locale": "en"
+  }
+    </script>
+  </div>
+  <!-- TradingView Widget END -->
+    </div>
+  </section>
+
+  <!--FAQ section-->
+
+  <section class="bg-indigo-950 text-white pt-10 px-8">
+    <div class="mx-auto">
+      <div class="-mx-4 flex flex-wrap items-center justify-between">
+        <!-- Image Section -->
+        <div class="w-full px-4 lg:w-1/2">
+          <div class="-mx-3 flex items-center sm:-mx-4">
+            <div class="w-full px-3 sm:px-4">
+              <div class="relative z-10 my-4">
+                <img
+                  src="./assets/faq.png"
+                  alt="FAQ"
+                  class="w-full rounded-2xl"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- FAQ Section -->
+        <div class="w-full px-4 lg:w-1/2 xl:w-1/2">
+          <span class="mb-4 block text-lg font-semibold text-primary text-indigo-300">
+            Have Questions?
+          </span>
+          <h2 class="mb-5 text-3xl font-bold text-dark sm:text-[40px]/[48px] dark:text-white">
+            Check our frequently asked questions
+          </h2>
+  
+          <div class="w-full mx-auto p-3 space-y-4">
+            <!-- FAQ Items -->
+            <div class="faq-item border border-gray-300 rounded-lg overflow-hidden">
+              <div
+                class="faq-header flex justify-between items-center p-4 cursor-pointer bg-indigo-600 hover:bg-indigo-800"
+                onclick="toggleFaq(0)"
+              >
+                <h3 class="text-lg font-medium">
+                  How do I get started?
+                </h3>
+                <span class="faq-icon transform transition-transform">▼</span>
+              </div>
+              <div class="faq-content hidden p-4 text-gray-700 bg-indigo-300">
+                <p>
+                  It's very easy to get started, all you have to do is click on the register button and proceed to create an account.
+                </p>
+              </div>
+            </div>
+  
+            <div class="faq-item border border-gray-300 rounded-lg overflow-hidden">
+              <div
+                class="faq-header flex justify-between items-center p-4 cursor-pointer bg-indigo-600 hover:bg-indigo-800"
+                onclick="toggleFaq(1)"
+              >
+                <h3 class="text-lg font-medium">
+                  How do I deposit and invest?
+                </h3>
+                <span class="faq-icon transform transition-transform">▼</span>
+              </div>
+              <div class="faq-content hidden p-4 text-gray-700 bg-indigo-300">
+                <p>
+                  To deposit and invest, you have to login to your account dashboard and go to the deposit section and follow the instructions to make deposits and start investing.
+                </p>
+              </div>
+            </div>
+  
+            <div class="faq-item border border-gray-300 rounded-lg overflow-hidden">
+              <div
+                class="faq-header flex justify-between items-center p-4 cursor-pointer bg-indigo-600 hover:bg-indigo-800"
+                onclick="toggleFaq(2)"
+              >
+                <h3 class="text-lg font-medium">
+                  Are my funds and investments safe?
+                </h3>
+                <span class="faq-icon transform transition-transform">▼</span>
+              </div>
+              <div class="faq-content hidden p-4 text-gray-700 bg-indigo-300">
+                <p>
+                  Our platform is secured with high-end security that protects our users' funds and data.
+                </p>
+              </div>
+            </div>
+  
+            <div class="faq-item border border-gray-300 rounded-lg overflow-hidden">
+              <div
+                class="faq-header flex justify-between items-center p-4 cursor-pointer bg-indigo-600 hover:bg-indigo-800"
+                onclick="toggleFaq(3)"
+              >
+                <h3 class="text-lg font-medium">
+                  Are there hidden charges for withdrawal?
+                </h3>
+                <span class="faq-icon transform transition-transform">▼</span>
+              </div>
+              <div class="faq-content hidden p-4 text-gray-700 bg-indigo-300">
+                <p>
+                  No! There are no extra or hidden charges for withdrawal processing.
+                </p>
+              </div>
+            </div>
+  
+            <div class="faq-item border border-gray-300 rounded-lg overflow-hidden">
+              <div
+                class="faq-header flex justify-between items-center p-4 cursor-pointer bg-indigo-600 hover:bg-indigo-800"
+                onclick="toggleFaq(4)"
+              >
+                <h3 class="text-lg font-medium">
+                  Can a user have more than one account?
+                </h3>
+                <span class="faq-icon transform transition-transform">▼</span>
+              </div>
+              <div class="faq-content hidden p-4 text-gray-700 bg-indigo-300">
+                <p>
+                  Having more than one account is prohibited, but you can have more than one active investment.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!--Testimonials-->
+
+  <section class="bg-white pt-20">
+    <div class="w-full mx-auto p-6 space-y-4 text-center">
+      <!-- Header Section -->
+      <div class="w-full px-4">
+        <div class="mx-auto mb-[60px] max-w-[510px] text-center">
+          <h2 class="mb-3 text-3xl font-bold leading-[1.208] text-dark sm:text-4xl md:text-[40px] text-indigo-900">
+            Testimonials
+          </h2>
+          <p class="text-base text-body-color text-indigo-950">
+            Don't just take our words for it, hear what our clients are saying
+          </p>
+        </div>
+      </div>
+  
+      <!-- Testimonials Section -->
+      <div class="w-full px-4 flex flex-col md:flex-row gap-3">
+        <!-- Testimonial 1 -->
+        <div class="w-full md:w-1/3 p-3 mb-6 shadow-md">
+          <p class="mb-2 text-base font-light italic leading-[1.81] text-body-color sm:text-[17px] dark:text-dark-6">
+            This is an amazing platform! The team is supportive, and the investment service exceeded my expectations.
+          </p>
+          <h4 class="text-[22px] font-semibold leading-[24px] text-dark dark:text-white">
+            Greg A.
+          </h4>
+          <p class="text-base text-body-color text-red-600">
+            Sales Manager.
+          </p>
+        </div>
+  
+        <!-- Testimonial 2 -->
+        <div class="w-full md:w-1/3 p-3 mb-6 shadow-md">
+          <p class="mb-2 text-base font-light italic leading-[1.81] text-body-color sm:text-[17px] dark:text-dark-6">
+            Fantastic experience! Highly recommend to anyone looking for a trusted investment platform.
+          </p>
+          <h4 class="text-[22px] font-semibold leading-[24px] text-dark dark:text-white">
+            Sarah Briske
+          </h4>
+          <p class="text-base text-body-color text-red-600">
+            Designer, TechCorp
+          </p>
+        </div>
+  
+        <!-- Testimonial 3 -->
+        <div class="w-full md:w-1/3 p-3 mb-6 shadow-md">
+          <p class="mb-2 text-base font-light italic leading-[1.81] text-body-color sm:text-[17px] dark:text-dark-6">
+            Superb service and exceptional support. I'm thoroughly impressed with the quality provided.
+          </p>
+          <h4 class="text-[22px] font-semibold leading-[24px] text-dark dark:text-white">
+            Michael B
+          </h4>
+          <p class="text-base text-body-color text-red-600">
+            Real Estate Agent
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="relative z-10 pb-10 pt-20 lg:pb-20 lg:pt-[120px] bg-indigo-950 text-white dark:bg-dark w-full px-4 sm:px-8 mx-auto gap-x-6 overflow-hidden">
+    <div class="container mx-auto">
+      <div class="-mx-4 flex flex-wrap">
+  
+        <!-- Company Info -->
+        <div class="w-full px-4 sm:w-2/3 lg:w-3/12">
+          <div class="mb-10 w-full">
+            <a href="#" class="mb-6 inline-block max-w-[160px]">
+              <img src="../../assets/images/logo/logo.svg" alt="QuantumFx Logo" class="max-w-full dark:hidden" />
+              <img src="../../assets/images/logo/logo-white.svg" alt="QuantumFx Logo" class="hidden max-w-full dark:block" />
+            </a>
+            <p class="mb-7 text-base text-body-color dark:text-dark-6">
+              A secure global trading and investment company that helps you manage your portfolio and grow wealth.
+            </p>
+            <p class="flex items-center text-sm font-medium text-dark dark:text-white">
+              <span>+012 (345) 678 99</span>
+            </p>
+          </div>
+        </div>
+  
+        <!-- Navigation Links -->
+        <div class="w-full px-4 sm:w-1/2 lg:w-2/12">
+          <div class="mb-10 w-full">
+            <h4 class="mb-9 text-lg font-semibold text-dark dark:text-white">Resources</h4>
+            <ul class="space-y-3">
+              <li><a href="#" class="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6">Investment Plans</a></li>
+              <li><a href="#" class="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6">Our Markets</a></li>
+              <li><a href="#" class="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6">Data Policy</a></li>
+              <li><a href="#" class="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6">Investment Analysis</a></li>
+            </ul>
+          </div>
+        </div>
+  
+        <div class="w-full px-4 sm:w-1/2 lg:w-2/12">
+          <div class="mb-10 w-full">
+            <h4 class="mb-9 text-lg font-semibold text-dark dark:text-white">Company</h4>
+            <ul class="space-y-3">
+              <li><a href="#" class="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6">About QuantumFx</a></li>
+              <li><a href="#" class="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6">Contact & Support</a></li>
+              <li><a href="#" class="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6">Success History</a></li>
+              <li><a href="#" class="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6">Setting & Privacy</a></li>
+            </ul>
+          </div>
+        </div>
+  
+        <div class="w-full px-4 sm:w-1/2 lg:w-2/12">
+          <div class="mb-10 w-full">
+            <h4 class="mb-9 text-lg font-semibold text-dark dark:text-white">More</h4>
+            <ul class="space-y-3">
+              <li><a href="#" class="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6">Support</a></li>
+              <li><a href="#" class="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6">Our Services</a></li>
+              <li><a href="#" class="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6">Know Our Team</a></li>
+              <li><a href="#" class="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6">Download App</a></li>
+            </ul>
+          </div>
+        </div>
+  
+        <!-- Social Media Links -->
+        <div class="w-full px-4 sm:w-1/2 lg:w-3/12">
+          <div class="mb-10 w-full">
+            <h4 class="mb-9 text-lg font-semibold text-dark dark:text-white">Follow Us On</h4>
+            <div class="mb-6 flex items-center">
+              <a href="#" aria-label="Facebook" class="mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-stroke text-dark hover:border-primary hover:bg-primary hover:text-white sm:mr-4 lg:mr-3 xl:mr-4 dark:border-dark-3 dark:text-white dark:hover:border-primary">
+                <!-- Facebook Icon -->
+                <svg>...</svg>
+              </a>
+              <a href="#" aria-label="Twitter" class="mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-stroke text-dark hover:border-primary hover:bg-primary hover:text-white sm:mr-4 lg:mr-3 xl:mr-4 dark:border-dark-3 dark:text-white dark:hover:border-primary">
+                <!-- Twitter Icon -->
+                <svg>...</svg>
+              </a>
+              <a href="#" aria-label="YouTube" class="mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-stroke text-dark hover:border-primary hover:bg-primary hover:text-white sm:mr-4 lg:mr-3 xl:mr-4 dark:border-dark-3 dark:text-white dark:hover:border-primary">
+                <!-- YouTube Icon -->
+                <svg>...</svg>
+              </a>
+              <a href="#" aria-label="LinkedIn" class="mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-stroke text-dark hover:border-primary hover:bg-primary hover:text-white sm:mr-4 lg:mr-3 xl:mr-4 dark:border-dark-3 dark:text-white dark:hover:border-primary">
+                <!-- LinkedIn Icon -->
+                <svg>...</svg>
+              </a>
+            </div>
+            <p class="text-base text-body-color dark:text-dark-6">&copy; 2025 QuantumFx</p>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </footer>
+  
+    </div>
+
+    <script src="./assets/js/alpine.min.js"></script>
+    <script>
+        function toggleFaq(index) {
+          const items = document.querySelectorAll('.faq-item');
+          items.forEach((item, i) => {
+            const content = item.querySelector('.faq-content');
+            const icon = item.querySelector('.faq-icon');
+            if (i === index) {
+              content.classList.toggle('hidden');
+              icon.classList.toggle('rotate-180');
+            } else {
+              content.classList.add('hidden');
+              icon.classList.remove('rotate-180');
+            }
+          });
+        }
+      </script>
+</body>
+</html>
