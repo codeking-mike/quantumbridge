@@ -29,12 +29,12 @@ session_start();
                 <img
                     src="./assets/quantumbridge_logo.png"
                     alt="Quantum Bridge"
-                    class="h-24 w-32 mr-2 max-w-[180px]"
+                    class="h-24 w-32 mr-2 max-w-[180px]" style="width:223px !important; height:98px !important"
                   />
                 </a>
               </div>
               <div class="mb-10 text-left font-light">
-                <h4 class="text-orange-600 font-bold">
+                <h4 class="text-orange-600 font-bold text-2xl">
                     Account Login
                 </h4>
                 <p>Access your dashboard using your Username and Password</p>

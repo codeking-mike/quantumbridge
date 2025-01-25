@@ -17,6 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $datejoined = date('Y-m-d H:i:s');
     $admin = 'no';
     $verified = 'no';
+    $ref = $_POST['ref'];
 
     // Validate inputs
     if (empty($fname)) $errors[] = "First name is required.";
@@ -47,14 +48,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // If no errors, insert into database
     if (empty($errors)) {
         
-        $stmt = $conn->prepare("INSERT INTO fx_client_db (firstname, lastname, country, phone_no, user_email, username, user_password, is_admin, is_verified, date_joined) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssssssssss", $fname, $lname, $country, $phoneNumber, $email, $userName, $password, $admin, $verified, $datejoined);
+        $stmt = $conn->prepare("INSERT INTO fx_client_db (firstname, lastname, country, phone_no, user_email, username, user_password, is_admin, is_verified, date_joined, reference) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("sssssssssss", $fname, $lname, $country, $phoneNumber, $email, $userName, $password, $admin, $verified, $datejoined, $ref);
 
         if ($stmt->execute()) {
             // Send welcome email
+            $userid = mysqli_insert_id($conn);
+
+            $sql_ship = "INSERT INTO user_wallet(userid, account_balance, referral_bonus, interest_balance)
+                                          VALUES('$userid','0.00', '0.00', '0.00')";
+                 $result = mysqli_query($conn,$sql_ship)
+                         or die("$sql_ship" . mysqli_error($conn));
+
+                    
             $subject = "Welcome to Our Platform!";
-            $message = "Hello $fname,\n\nThank you for signing up. We're glad to have you with us!";
-            $headers = "From: no-reply@example.com"; // Replace with your email
+            $message = "Hello $fname,\n\nThank you for signing up with us at Quantum Bidge FX\n\n. We're glad to have you with us!";
+            $headers = "From: no-reply@quantumbridgeus.com"; // Replace with your email
 
             if (mail($email, $subject, $message, $headers)) {
                 echo "Account created! A verification email has been sent to you. Kindly check your INBOX or JUNK folders for the email";

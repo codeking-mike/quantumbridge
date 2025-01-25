@@ -1,4 +1,10 @@
-<?php session_start() ?>
+<?php 
+session_start();
+if(isset($_GET['ref'])){
+  $ref = $_GET['ref'];
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,12 +31,12 @@
                   <img
                     src="./assets/quantumbridge_logo.png"
                     alt="Quantum Bridge"
-                    class="h-24 w-32 mr-2 max-w-[180px]"
+                    class="h-24 w-32 mr-2 max-w-[180px]" style="width:223px !important; height:98px !important"
                   />
                 </a>
               </div>
               <div class="mb-10 text-left font-light">
-                <h4 class="text-orange-600 font-bold">
+                <h4 class="text-orange-600 font-bold text-2xl">
                     Sign Up
                 </h4>
                 <p>Create an account to start trading and investing</p>
@@ -120,6 +126,7 @@
                    name="confirmPassword"
                     />
                 </div>
+                <input type="hidden" name="ref" value="<?php echo $ref ?>">
                 <div class="mb-10">
                   <input
                     type="submit"
