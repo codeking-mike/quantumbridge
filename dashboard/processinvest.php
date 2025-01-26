@@ -1,5 +1,7 @@
 <?php
 include_once('auth.php');
+include_once('../functions/function.php');
+
 
 if(isset($_POST['basic_plan'])){ 
     $amount = $_POST['amount'];
@@ -26,6 +28,24 @@ if(isset($_POST['basic_plan'])){
                          or die("$sql_ship" . mysqli_error($conn));
                  //update main wallet
                 mysqli_query($conn, "UPDATE user_wallet SET account_balance='$balance' WHERE userid='$user_id'");
+
+                $subject = "Transaction Notification";
+                $message = "
+    <html>
+    <head>
+        <title>$subject</title>
+    </head>
+    <body style='background:#f1f1f1;padding:10px'>
+        <h1 style='color:indigo'>Hello $fname!</h1>
+        <p>Your investment of USD$amount in our $plan investment plan was successful. </p>
+        <p><strong>Thank you for choosing us!</strong></p>
+        <p>-The Quantum Bridge Team</p>
+    </body>
+    </html>
+    ";
+              
+    
+                    sendHtmlEmail($to, $subject, $message);
 
                  $_SESSION['success'] = "Your Investment in our basic plan was successful";
                 header("location:plans.php");
@@ -62,6 +82,24 @@ if(isset($_POST['silver_plan'])){
                          or die("$trans_query" . mysqli_error($conn));
 
                 mysqli_query($conn, "UPDATE user_wallet SET account_balance='$balance' WHERE userid='$user_id'");
+
+                $subject = "Transaction Notification";
+                $message = "
+    <html>
+    <head>
+        <title>$subject</title>
+    </head>
+    <body style='background:#f1f1f1;padding:10px'>
+        <h1 style='color:indigo'>Hello $fname!</h1>
+        <p>Your investment of USD$amount in our $plan investment plan was successful. </p>
+        <p><strong>Thank you for choosing us!</strong></p>
+        <p>-The Quantum Bridge Team</p>
+    </body>
+    </html>
+    ";
+              
+    
+                    sendHtmlEmail($to, $subject, $message);
 
                  $_SESSION['success'] = "Your Investment in our silver plan was successful";
                 header("location:plans.php");
@@ -101,6 +139,24 @@ if(isset($_POST['premium_plan'])){
 
                 mysqli_query($conn, "UPDATE user_wallet SET account_balance='$balance' WHERE userid='$user_id'");
 
+                $subject = "Transaction Notification";
+                $message = "
+    <html>
+    <head>
+        <title>$subject</title>
+    </head>
+    <body style='background:#f1f1f1;padding:10px'>
+        <h1 style='color:indigo'>Hello $fname!</h1>
+        <p>Your investment of USD$amount in our $plan investment plan was successful. </p>
+        <p><strong>Thank you for choosing us!</strong></p>
+        <p>-The Quantum Bridge Team</p>
+    </body>
+    </html>
+    ";
+              
+    
+                    sendHtmlEmail($to, $subject, $message);
+
                  $_SESSION['success'] = "Your Investment in our premium plan was successful";
                 header("location:plans.php");
 }
@@ -137,6 +193,25 @@ if(isset($_POST['diamond_plan'])){
                          or die("$trans_query" . mysqli_error($conn));
 
                 mysqli_query($conn, "UPDATE user_wallet SET account_balance='$balance' WHERE userid='$user_id'");
+
+                $subject = "Transaction Notification";
+                $message = "
+    <html>
+    <head>
+        <title>$subject</title>
+    </head>
+    <body style='background:#f1f1f1;padding:10px'>
+        <h1 style='color:indigo'>Hello $fname!</h1>
+        <p>Your investment of USD$amount in our $plan investment plan was successful. </p>
+        <p><strong>Thank you for choosing us!</strong></p>
+        <p>-The Quantum Bridge Team</p>
+    </body>
+    </html>
+    ";
+              
+    
+                    sendHtmlEmail($to, $subject, $message);
+
 
                  $_SESSION['success'] = "Your Investment in our diamond plan was successful";
                 header("location:plans.php");

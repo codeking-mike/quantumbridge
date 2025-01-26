@@ -42,15 +42,14 @@ if(isset($_GET['ref'])){
                 <p>Create an account to start trading and investing</p>
                 <?php
                 if(isset($_SESSION['error'])){
-                  $errors[] = $_SESSION['error'];
+                  $errors = $_SESSION['error'];
                   
                 ?>
                 <p class="bg-white text-base leading-relaxed text-red-600">
                   <?php 
-                      foreach ($errors as $error) {
+                      
 
                         echo $error;
-                    }
                   
                   ?>
                 </p>
@@ -65,12 +64,12 @@ if(isset($_GET['ref'])){
                     type="text"
                     placeholder="First Name"
                     class="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-body-color outline-none focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white"
-                    name="fname"
+                    name="fname" required
                     />
                 </div>
                 <div class="mb-6">
                   <input
-                    type="text" name="lname"
+                    type="text" name="lname" required
                     placeholder="Last Name"
                     class="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-body-color outline-none focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white"
                   />
@@ -89,7 +88,7 @@ if(isset($_GET['ref'])){
                 <div class="mb-6">
                   <input
                     type="text"
-                    placeholder="Your Phone Number"
+                    placeholder="Your Phone Number" required
                     class="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-body-color outline-none focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white"
                     name="phoneNumber"
                     />
@@ -97,7 +96,7 @@ if(isset($_GET['ref'])){
                 <div class="mb-6">
                   <input
                     type="email"
-                    placeholder="Enter Email Address"
+                    placeholder="Enter Email Address" required
                     class="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-body-color outline-none focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white"
                    name="email"
                     />
@@ -105,7 +104,7 @@ if(isset($_GET['ref'])){
                 <div class="mb-6">
                   <input
                     type="text"
-                    placeholder="User Name"
+                    placeholder="User Name" required
                     class="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-body-color outline-none focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white"
                    name="userName"
                     />
@@ -113,7 +112,7 @@ if(isset($_GET['ref'])){
                 <div class="mb-6">
                   <input
                     type="password"
-                    placeholder="Password"
+                    placeholder="Password" required
                     class="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-body-color outline-none focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white"
                    name="password"
                     />
@@ -121,7 +120,7 @@ if(isset($_GET['ref'])){
                 <div class="mb-6">
                   <input
                     type="password"
-                    placeholder="Password"
+                    placeholder="Password" required
                     class="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-body-color outline-none focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white"
                    name="confirmPassword"
                     />

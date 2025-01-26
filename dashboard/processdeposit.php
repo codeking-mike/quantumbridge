@@ -1,5 +1,6 @@
 <?php
 include_once('auth.php');
+include_once('../functions/function.php');
 
 if(isset($_POST['btc'])){ 
     $amount = $_POST['amount'];
@@ -13,6 +14,8 @@ if(isset($_POST['btc'])){
                  $result = mysqli_query($conn,$sql_ship)
                          or die("$sql_ship" . mysqli_error($conn));
                  $transid = mysqli_insert_id($conn);
+
+                 
   
                 header("location:deposithistory.php");
 }

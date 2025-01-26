@@ -1,8 +1,9 @@
 <?php
 session_start();
 include_once('db_connect.php');
+include_once('functions/function.php');
 // Initialize an error message array
-$errors = [];
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get and sanitize form inputs
@@ -20,14 +21,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $ref = $_POST['ref'];
 
     // Validate inputs
-    if (empty($fname)) $errors[] = "First name is required.";
-    if (empty($lname)) $errors[] = "Last name is required.";
-    if (empty($country)) $errors[] = "Country is required.";
+    
     if (empty($phoneNumber) || !preg_match('/^[0-9]{10,15}$/', $phoneNumber)) {
-        $errors[] = "Valid phone number is required.";
+
+        $_SESSION['error'] = "Valid phone number is required.";
+        header('location:register.php');
+        exit;
+        
     }
     if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors[] = "Valid email address is required.";
+
+        $_SESSION['error'] = "Valid email address is required.";
+        header('location:register.php');
+        exit;
     }
     if (empty($userName)) $errors[] = "Username is required.";
     if (empty($password)) $errors[] = "Password is required.";
@@ -40,7 +46,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute();
         $stmt->store_result();
         if ($stmt->num_rows > 0) {
-            $errors[] = "Username or email already exists.";
+
+            $_SESSION['error'] = "Username or email already exists.";
+            header('location:register.php');
+            exit;
+        
         }
         $stmt->close();
     }
@@ -61,19 +71,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                          or die("$sql_ship" . mysqli_error($conn));
 
                     
-            $subject = "Welcome to Our Platform!";
-            $message = "Hello $fname,\n\nThank you for signing up with us at Quantum Bidge FX\n\n. We're glad to have you with us!";
-            $headers = "From: no-reply@quantumbridgeus.com"; // Replace with your email
+            $subject = "Welcome to Quantum Bridge";
+            $message = "
+<html>
+<head>
+    <title>$subject</title>
+</head>
+<body style='background:#f1f1f1;padding:10px'>
+    <h1 style='color:indigo'>Welcome $fname!</h1>
+    <p>Thank you for signing up with us at Quantum Bidge FX. We're excited to have you on board!</p>
+    <p><strong>Kindly make a deposit to start investing and earning!</strong></p>
+    <p>-The Quantum Bridge Team</p>
+</body>
+</html>
+";
+          
 
-            if (mail($email, $subject, $message, $headers)) {
-                echo "Account created! A verification email has been sent to you. Kindly check your INBOX or JUNK folders for the email";
+                sendHtmlEmail($to, $subject, $message);
+
+                $_SESSION['error'] = "Account created! A welcome email has been sent to you. Kindly check your INBOX or JUNK folders for the email";
                 header('location:login.php');
-            } else {
-                echo "Account created ";
-                header('location:login.php');
-            }
+                exit;
+            
         } else {
-            $errors[] = "Error: " . $stmt->error;
+
+            $_SESSION['error'] = "Error: " . $stmt->error;
+            header('location:register.php');
+            exit;
+            
+        
         }
         $stmt->close();
     }
@@ -81,11 +107,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Close the database connection
     $conn->close();
 
-    // Handle errors
-    if (!empty($errors)) {
-        $_SESSION['error'] = $errors;
-        header('location:register.php');
-        
-    }
 }
 ?>

@@ -40,15 +40,14 @@ session_start();
                 <p>Access your dashboard using your Username and Password</p>
                 <?php
                 if(isset($_SESSION['error'])){
-                  $errors[] = $_SESSION['error'];
+                  $errors = $_SESSION['error'];
                   
                 ?>
                 <p class="bg-white text-base leading-relaxed text-red-600 p-3">
                   <?php 
-                      foreach ($errors as $error) {
-
+                      
                         echo $error;
-                    }
+                    
                   
                   ?>
                 </p>
@@ -66,7 +65,7 @@ session_start();
                 <div class="mb-6">
                   <input
                     type="text"
-                    placeholder="User Name"
+                    placeholder="User Name" required
                     class="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-body-color outline-none focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white"
                    name="userName"
                     />
@@ -74,7 +73,7 @@ session_start();
                 <div class="mb-6">
                   <input
                     type="password"
-                    placeholder="Password"
+                    placeholder="Password" required
                     class="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-body-color outline-none focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white"
                    name="password"
                     />
