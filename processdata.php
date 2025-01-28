@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $userid = mysqli_insert_id($conn);
 
             $sql_ship = "INSERT INTO user_wallet(userid, account_balance, referral_bonus, interest_balance)
-                                          VALUES('$userid','0.00', '0.00', '0.00')";
+                                          VALUES('$userName','0.00', '0.00', '0.00')";
                  $result = mysqli_query($conn,$sql_ship)
                          or die("$sql_ship" . mysqli_error($conn));
 

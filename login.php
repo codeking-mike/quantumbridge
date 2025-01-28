@@ -1,5 +1,4 @@
 <?php
-// Start the session
 session_start();
 
 ?>
@@ -40,7 +39,7 @@ session_start();
                 <p>Access your dashboard using your Username and Password</p>
                 <?php
                 if(isset($_SESSION['error'])){
-                  $errors = $_SESSION['error'];
+                  $error = $_SESSION['error'];
                   
                 ?>
                 <p class="bg-white text-base leading-relaxed text-red-600 p-3">
